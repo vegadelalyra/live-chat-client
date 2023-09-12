@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <script defer src="https://live-chat-server.up.railway.app/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            color: wheat;
+            font-size: 1rem;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+        }
+        #message-container {
+            width: 80%;
+            max-width: 1200px;
+            
+            & div {
+                background-color: #b14d00;
+                padding: 5px;
+            
+                &:nth-child(2n) {
+                    background-color: #6e00ae;
+                }
+            }
+        }
+        #send-container {
+            position: fixed;
+            padding-bottom: 30px;
+            bottom: 0;
+            background-color: rgb(0, 0, 0);
+            max-width: 1200px;
+            width: 80%;
+            display: flex;
+        }
+        #message-input {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="message-container"></div>
+    <form action="" id="send-container">
+        <input type="text" id="message-input">
+        <!-- <button type="submit" id="send-button">Send</button> -->
+    </form>
+</body>
+</html>
