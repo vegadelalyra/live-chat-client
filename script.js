@@ -9,14 +9,17 @@ socket.emit('new-user', Name)
 
 socket.on('chat-message', data => {
     appendMessage(`${data.name}: ${data.message}`)
+    messageContainer.scrollTop = messageContainer.scrollHeight
 })
 
 socket.on('user-connected', name => {
     appendMessage(`${name} connected`)
+    messageContainer.scrollTop = messageContainer.scrollHeight
 })
 
 socket.on('user-disconnected', name => {
     appendMessage(`${name} disconnected`)
+    messageContainer.scrollTop = messageContainer.scrollHeight
 })
 
 messageForm.addEventListener('submit', e => {
@@ -24,6 +27,7 @@ messageForm.addEventListener('submit', e => {
     const message = messageInput.value
     appendMessage(`You: ${message}`)
     socket.emit('send-chat-message', message)
+    messageContainer.scrollTop = messageContainer.scrollHeight
     messageInput.value = ''     
 })
 
